@@ -16,22 +16,26 @@ export default function TextForm(props) {
         console.log("handleOnChange");
         setText(event.target.value);
     }
+    const clearText = ()=>{
+        setText('');
+    }
     const [text, setText] = useState("");
   return (
     <>
-    <div className="container">
+    <div className="container" style={{color: props.mode === 'dark'?'white':'black'}}>
     <div className="mb-3">
     <label htmlFor="myBox" className="form-label">{props.heading}</label>
     <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
     </div>
     <button type="button" className="btn btn-primary mx-3 my-3" onClick={handleUpClick}>Convert to Upper Case</button>
     <button type="button" className="btn btn-primary mx-3 my-3" onClick={handleLowClick}>Convert to Lower Case</button>
+    <button type="button" className="btn btn-primary mx-3 my-3" onClick={clearText}>Clear Text</button>
     </div>
-    <div className="container my-2">
+    <div className="container my-2" style={{color: props.mode === 'dark'?'white':'black'}} >
         <h1>Your text summary</h1>
         <p>{text.split(" ").length} words {text.length} letters</p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text.length > 0?text:"Enter something to preview here"}</p>
     </div>
     </>
   )
