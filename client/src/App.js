@@ -6,6 +6,8 @@ import TextForm from './components/TextForm';
 import React, { useState } from 'react';
 import Alert from './components/Alert';
 
+
+
 function App() {
   const [mode, setMode] = useState('light');
   const [alert, setAlert] = useState(null);
@@ -41,6 +43,7 @@ function App() {
    <TextForm showAlert={showAlert} heading="Enter Text here" mode={mode} />
    </div>
   {/* <div className="container">
+   <TextForm showAlert={showAlert} heading="Enter Text here" mode={mode} />
   <About />
   </div> */}
   
